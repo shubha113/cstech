@@ -1,0 +1,148 @@
+.file-upload-area {
+  border: 2px dashed #007bff;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-area:hover {
+  background-color: #f8f9fa;
+}
+
+.file-upload-area.drag-over {
+  background-color: #e3f2fd;
+  border-color: #1976d2;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-upload-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.file-upload-btn:hover {
+  transform: translateY(-2px);
+}
+
+.file-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e8f5e8;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+}
+
+.file-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.file-size {
+  color: #666;
+  font-size: 14px;
+}
+
+.upload-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.stat-box {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-box h3 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.stat-box p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.distributed-lists {
+  margin-top: 30px;
+}
+
+.list-card {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.list-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.agent-name-header {
+  font-weight: 600;
+  color: #333;
+}
+
+.items-count {
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.list-items {
+  padding: 20px;
+}
+
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-table th {
+  background: #f8f9fa;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.list-table td {
+  padding: 10px;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.list-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.no-lists {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 40px;
+}
