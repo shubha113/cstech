@@ -1,27 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+const backendURL = "https://cstech-backend.onrender.com";
 
 // Register user
 export const registerUser = createAsyncThunk(
   "auth/register",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await fetch("/api/v1/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
-
-      const data = await response.json();
-
-      if (!data.success) {
-        return rejectWithValue(data.message);
-      }
-
-      return data;
+      const response = await axios.post(`${backendURL}/api/v1/auth/register`, userData);
+      return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message || error.message);
     }
   }
 );
@@ -31,47 +21,27 @@ export const loginUser = createAsyncThunk(
   "auth/login",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await fetch("/api/v1/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(userData),
+      const response = await axios.post(`${backendURL}/api/v1/auth/login`, userData, {
+        withCredentials: true,
       });
-
-      const data = await response.json();
-
-      if (!data.success) {
-        return rejectWithValue(data.message);
-      }
-
-      return data;
+      return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message || error.message);
     }
   }
 );
 
-//Get profile
+// Get profile
 export const getMe = createAsyncThunk(
   "auth/getMe",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch("/api/v1/auth/me", {
-        method: "GET",
-        credentials: "include",
+      const response = await axios.get(`${backendURL}/api/v1/auth/me`, {
+        withCredentials: true,
       });
-
-      const data = await response.json();
-
-      if (!data.success) {
-        return rejectWithValue(data.message);
-      }
-
-      return data;
+      return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message || error.message);
     }
   }
 );
@@ -81,20 +51,12 @@ export const logoutUser = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch("/api/v1/auth/logout", {
-        method: "POST",
-        credentials: "include",
+      const response = await axios.post(`${backendURL}/api/v1/auth/logout`, {}, {
+        withCredentials: true,
       });
-
-      const data = await response.json();
-
-      if (!data.success) {
-        return rejectWithValue(data.message);
-      }
-
-      return data;
+      return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message || error.message);
     }
   }
 );
