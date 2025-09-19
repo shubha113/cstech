@@ -15,7 +15,7 @@ const app = express();
 
 //Middlewares
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: 'https://cstech-seven.vercel.app',
     credentials: true
 }));
 app.use(express.json());
@@ -44,5 +44,6 @@ app.get('/api/health', (req, res) => {
 
 // Error handling middleware
 app.use(ErrorMiddleware);
+
 
 export default app;
