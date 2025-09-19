@@ -15,8 +15,10 @@ const app = express();
 
 //Middlewares
 app.use(cors({
-    origin: 'https://cstech-seven.vercel.app',
-    credentials: true
+  origin: 'https://cstech-seven.vercel.app',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -47,3 +49,4 @@ app.use(ErrorMiddleware);
 
 
 export default app;
+
