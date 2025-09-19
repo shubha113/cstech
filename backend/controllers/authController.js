@@ -58,7 +58,7 @@ export const loginUser = catchAsyncError(async (req, res, next) => {
       Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: true,
     sameSite: "none",
   });
 
@@ -91,7 +91,7 @@ export const logoutUser = catchAsyncError(async (req, res, next) => {
   res.cookie("token", null, {
     expires: new Date(Date.now()),
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: true,
     sameSite: "none",
   });
 
@@ -100,4 +100,5 @@ export const logoutUser = catchAsyncError(async (req, res, next) => {
     message: "Logged out successfully",
   });
 });
+
 
