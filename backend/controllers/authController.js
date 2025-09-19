@@ -59,7 +59,7 @@ export const loginUser = catchAsyncError(async (req, res, next) => {
     ),
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    sameSite: "none",
   });
 
   res.status(200).json({
@@ -92,7 +92,7 @@ export const logoutUser = catchAsyncError(async (req, res, next) => {
     expires: new Date(Date.now()),
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    sameSite: "none",
   });
 
   res.status(200).json({
@@ -100,3 +100,4 @@ export const logoutUser = catchAsyncError(async (req, res, next) => {
     message: "Logged out successfully",
   });
 });
+
